@@ -18,11 +18,16 @@ const router = new VueRouter({
   base: __dirname
 });
 
-const app = new Vue({
-  el: '#app',
-  router,
-  store,
-  render: h => h(App)
-});
+store.dispatch('initApp').then(() => {
+  const app = new Vue({
+    el: '#app',
+    router,
+    store,
+    render: h => h(App)
+  });
 
-initAuth(store);
+  initAuth(store);
+}, (err) => {
+  console.log('Error wile initializing', err);
+  // TODO: Warn user but should not occur...
+});
