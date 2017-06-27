@@ -3,6 +3,10 @@
 import {app, ipcMain, BrowserWindow} from 'electron';
 const isDev = require('electron-is-dev');
 const oauthConfig = require('./config').oauth;
+const appTray = require('./tray');
+// need to keep a reference to tray to not be GC'ed
+// https://github.com/electron/electron/issues/822
+let tray = null;
 
 if (isDev) {
   console.log('Running in development');
@@ -36,6 +40,8 @@ app.on('ready', () => {
     width: 580,
     height: 365
   });
+
+  tray = appTray.create(mainWindow);
 
   mainWindow.loadURL(`file://${__dirname}/../frontend/index.html`)
 });
