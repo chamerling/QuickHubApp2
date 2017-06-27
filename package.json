@@ -2,7 +2,7 @@
   "name": "quickhubapp2",
   "version": "0.0.0",
   "description": "Quick Github client using Electron + Vuejs",
-  "main": "src/app.js",
+  "main": "src/main/app.js",
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -13,7 +13,7 @@ npm install
 ## Configure
 
 1. Got to github and create a new application at https://github.com/settings/applications/new
-2. Copy client ID and client secret and paste them in the `app/config.js` file
+2. Copy client ID and client secret and paste them in the `src/main/config.js` file
 
 ## Run
 

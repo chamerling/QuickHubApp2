@@ -37,7 +37,7 @@ app.on('ready', () => {
     height: 365
   });
 
-  mainWindow.loadURL(`file://${__dirname}/app/index.html`)
+  mainWindow.loadURL(`file://${__dirname}/../frontend/index.html`)
 });
 
 ipcMain.on('github-oauth', (event, arg) => {
