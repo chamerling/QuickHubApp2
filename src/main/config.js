@@ -1,4 +1,7 @@
 module.exports = {
+  sources: {
+    repoUrl: 'https://github.com/chamerling/quickhubapp2'
+  },
   oauth: {
     clientId: process.env.GITHUB_CLIENT_ID || '9620dd52982ce6179ace',
     clientSecret: process.env.GITHUB_CLIENT_SECRET || '',

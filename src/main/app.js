@@ -1,9 +1,10 @@
 'use strict';
 
-import {app, ipcMain, BrowserWindow} from 'electron';
+import {app, ipcMain, BrowserWindow, Menu} from 'electron';
 const isDev = require('electron-is-dev');
 const oauthConfig = require('./config').oauth;
 const appTray = require('./tray');
+const appMenu = require('./menu');
 // need to keep a reference to tray to not be GC'ed
 // https://github.com/electron/electron/issues/822
 let tray = null;
@@ -41,6 +42,7 @@ app.on('ready', () => {
     height: 365
   });
 
+  Menu.setApplicationMenu(appMenu.create(mainWindow));
   tray = appTray.create(mainWindow);
 
   mainWindow.loadURL(`file://${__dirname}/../frontend/index.html`)
